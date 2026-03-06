@@ -653,21 +653,9 @@
 
   // ===== Accueil =====
   function initHomePage() {
-    var stats = qs('#home-stats');
-    if (!stats) return;
-
-    var items = [
-      { value: data.activities.length, label: 'activites programmees' },
-      { value: data.events.length, label: 'evenements saison 2026' },
-      { value: 8, label: 'membres actifs' },
-      { value: 3, label: 'benevoles organisateurs' }
-    ];
-    stats.innerHTML = items.map(function (item) {
-      return '<article class="kpi reveal"><strong data-count="' + item.value + '">0</strong><span>' + item.label + '</span></article>';
-    }).join('');
-
+    // Count-up animation sur les stats statiques
     function animateCounter(el, target) {
-      var duration = 1400;
+      var duration = 1600;
       var startTime = null;
       function step(ts) {
         if (!startTime) startTime = ts;
@@ -679,16 +667,22 @@
       requestAnimationFrame(step);
     }
 
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          var el = entry.target;
-          animateCounter(el, parseInt(el.getAttribute('data-count'), 10));
-          io.unobserve(el);
-        }
-      });
-    }, { threshold: 0.5 });
-    qsa('[data-count]', stats).forEach(function (el) { io.observe(el); });
+    var countEls = qsa('[data-count]');
+    if (countEls.length && 'IntersectionObserver' in window) {
+      var cio = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            var el = entry.target;
+            animateCounter(el, parseInt(el.getAttribute('data-count'), 10));
+            cio.unobserve(el);
+          }
+        });
+      }, { threshold: 0.5 });
+      countEls.forEach(function (el) { cio.observe(el); });
+    }
+
+    var previews = qs('#home-previews');
+    if (!previews) return;
 
     var previews = qs('#home-previews');
     if (previews) {

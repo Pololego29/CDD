@@ -3,7 +3,7 @@ window.clubData = {
     name: 'Club de Découverte',
     city: 'Aix-en-Provence',
     email: 'clubdecouvertes.aix@esaip.org',
-    phone: '+33 6 12 34 56 78',
+    phone: '+33 6 11 56 33 70',
     logo: 'assets/logo-bdp-esaip-aix.png'
   },
   activities: [
