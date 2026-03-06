@@ -355,12 +355,22 @@
     var search = qs('#activity-search');
     var category = qs('#activity-category');
     var level = qs('#activity-level');
+    var priceMax = qs('#price-max');
+    var priceLabel = qs('#price-max-label');
+    var durationFilter = qs('#duration-filter');
 
     var categories = ['Toutes'].concat(Array.from(new Set(data.activities.map(function (a) { return a.category; }))));
     var levels = ['Tous'].concat(Array.from(new Set(data.activities.map(function (a) { return a.level; }))));
 
     category.innerHTML = categories.map(function (v) { return '<option value="' + v + '">' + v + '</option>'; }).join('');
     level.innerHTML = levels.map(function (v) { return '<option value="' + v + '">' + v + '</option>'; }).join('');
+
+    if (priceMax && priceLabel) {
+      priceMax.addEventListener('input', function () {
+        priceLabel.textContent = priceMax.value === '15' ? '15 € (tous)' : priceMax.value + ' €';
+        applyFilters();
+      });
+    }
 
     // Delegation unique sur le conteneur (survit aux re-rendus)
     results.addEventListener('click', function (e) {
@@ -377,23 +387,45 @@
     var currentFiltered = data.activities;
     function getCurrentFiltered() { return currentFiltered; }
 
+    function parseDurationHours(str) {
+      if (!str) return 99;
+      var s = String(str).toLowerCase();
+      if (s.indexOf('journee') !== -1) return 8;
+      var m = s.match(/(\d+(?:[.,]\d+)?)\s*h/);
+      if (m) return parseFloat(m[1].replace(',', '.'));
+      return 99;
+    }
+
     function applyFilters() {
       var q = (search.value || '').trim().toLowerCase();
       var c = category.value;
       var l = level.value;
+      var maxPrice = priceMax ? parseInt(priceMax.value, 10) : 15;
+      var maxDuration = durationFilter && durationFilter.value ? parseInt(durationFilter.value, 10) : 99;
+
       currentFiltered = data.activities.filter(function (item) {
         var text = (item.title + ' ' + item.description + ' ' + item.meetingPoint).toLowerCase();
-        return (!q || text.includes(q)) && (c === 'Toutes' || item.category === c) && (l === 'Tous' || item.level === l);
+        var matchText = !q || text.includes(q);
+        var matchCat = c === 'Toutes' || item.category === c;
+        var matchLvl = l === 'Tous' || item.level === l;
+        var matchPrice = (item.priceMember || 0) <= maxPrice;
+        var matchDuration = parseDurationHours(item.duration) <= maxDuration;
+        return matchText && matchCat && matchLvl && matchPrice && matchDuration;
       });
       renderActivities(currentFiltered);
+      initReveal();
     }
 
     [search, category, level].forEach(function (el) {
       el.addEventListener('input', applyFilters);
       el.addEventListener('change', applyFilters);
     });
+    if (durationFilter) {
+      durationFilter.addEventListener('change', applyFilters);
+    }
 
     renderActivities(data.activities);
+    initReveal();
   }
 
   // ===== Calendrier =====
@@ -692,6 +724,24 @@
     }).join('');
   }
 
+  // ===== Scroll reveal (IntersectionObserver) =====
+  function initReveal() {
+    var els = qsa('.reveal:not(.visible)');
+    if (!els.length || !('IntersectionObserver' in window)) {
+      qsa('.reveal').forEach(function (el) { el.classList.add('visible'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08 });
+    els.forEach(function (el) { io.observe(el); });
+  }
+
   // ===== Bouton haut de page =====
   function initBackToTop() {
     var button = document.createElement('button');
@@ -719,5 +769,6 @@
     initGalleryPage();
     initContactPage();
     initBackToTop();
+    initReveal();
   });
 })();

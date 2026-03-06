@@ -53,6 +53,22 @@
         <select id="activity-category"></select>
         <select id="activity-level"></select>
       </div>
+      <div class="filter-ranges">
+        <div class="range-group">
+          <label for="price-max">Prix max membre <span id="price-max-label">15 €</span></label>
+          <input id="price-max" type="range" min="0" max="15" value="15" step="1">
+        </div>
+        <div class="range-group">
+          <label for="duration-filter">Duree max <span id="duration-label">Toutes</span></label>
+          <select id="duration-filter">
+            <option value="">Toutes durees</option>
+            <option value="2">≤ 2h</option>
+            <option value="3">≤ 3h</option>
+            <option value="4">≤ 4h (demi-journee)</option>
+            <option value="99">Journee complete</option>
+          </select>
+        </div>
+      </div>
       <p id="activity-feedback" class="notice">Les inscriptions sont stockees localement dans votre navigateur.</p>
       <div id="activities-results" class="card-grid"></div>
     </section>
@@ -62,6 +78,7 @@
     <div class="container footer-wrap">
       <span>© <span data-year></span> Club de Découverte</span>
       <span>Rejoignez-nous pour les sorties a Aix-en-Provence</span>
+      <a href="mentions-legales.html">Mentions legales &amp; Confidentialite</a>
       <span>Site realise par Paul LAMBLIN, ING2 ESAIP Aix-en-Provence</span>
     </div>
   </footer>
