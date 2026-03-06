@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Club de Découverte | Adhesion</title>
+  <meta name="description" content="Formulaire d adhesion au Club de Découverte-en-Provence.">
+  <link rel="icon" type="image/png" href="assets/logo-bdp-esaip-aix.png">
+  <link rel="apple-touch-icon" href="assets/logo-bdp-esaip-aix.png">
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="main.html">
+        <img class="brand-mark" data-club-logo src="assets/logo-bdp-esaip-aix.png" alt="Logo Club de Découverte">
+        <span class="brand-text"><strong>Club de Découverte</strong><br><span>Aix-en-Provence et alentours</span></span>
+      </a>
+      <button class="nav-toggle" data-nav-toggle type="button">Menu</button>
+      <nav class="site-nav" data-nav>
+        <a class="nav-link" href="main.html">Accueil</a>
+        <a class="nav-link" href="activites.html">Activites</a>
+        <a class="nav-link" href="calendrier.html">Calendrier</a>
+        <a class="nav-link" href="adhesion.html">Adhesion</a>
+        <a class="nav-link" href="galerie.html">Galerie</a>
+        <a class="nav-link" href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-grid">
+        <div>
+          <h1>Adherer au club</h1>
+          <p>Completez ce formulaire pour rejoindre la saison 2026 et acceder aux sorties reservees aux membres.</p>
+        </div>
+        <aside class="hero-panel">
+          <h2>Cotisation estimee</h2>
+          <p class="muted">Montant calcule selon votre profil:</p>
+          <p><strong id="membership-fee">0 EUR</strong></p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="form-shell">
+      <h3>Formulaire membre</h3>
+      <form id="membership-form" class="stack">
+        <label for="full-name">Nom complet *</label>
+        <input id="full-name" name="fullName" type="text" required>
+
+        <label for="member-email">E-mail *</label>
+        <input id="member-email" name="email" type="email" required>
+
+        <label for="member-type">Profil *</label>
+        <select id="member-type" name="memberType" required>
+          <option value="Etudiant">Etudiant</option>
+          <option value="Jeune actif">Jeune actif</option>
+          <option value="Autre">Autre</option>
+        </select>
+
+        <label for="member-phone">Telephone</label>
+        <input id="member-phone" name="phone" type="tel" placeholder="06 00 00 00 00">
+
+        <label for="member-notes">Motivation</label>
+        <textarea id="member-notes" name="notes" placeholder="Ce que vous cherchez dans le club"></textarea>
+
+        <button class="btn btn-primary" type="submit">Envoyer ma demande</button>
+      </form>
+      <p id="membership-feedback" class="notice">Les demandes sont relues par l equipe sous 48h.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-wrap">
+      <span>© <span data-year></span> Club de Découverte</span>
+      <span>Adhesion annuelle - saison 2026</span>
+    </div>
+  </footer>
+
+  <script src="assets/data.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>

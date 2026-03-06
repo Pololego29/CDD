@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Club de Découverte | Calendrier</title>
+  <meta name="description" content="Calendrier des evenements et sorties du Club de Découverte.">
+  <link rel="icon" type="image/png" href="assets/logo-bdp-esaip-aix.png">
+  <link rel="apple-touch-icon" href="assets/logo-bdp-esaip-aix.png">
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="main.html">
+        <img class="brand-mark" data-club-logo src="assets/logo-bdp-esaip-aix.png" alt="Logo Club de Découverte">
+        <span class="brand-text"><strong>Club de Découverte</strong><br><span>Aix-en-Provence et alentours</span></span>
+      </a>
+      <button class="nav-toggle" data-nav-toggle type="button">Menu</button>
+      <nav class="site-nav" data-nav>
+        <a class="nav-link" href="main.html">Accueil</a>
+        <a class="nav-link" href="activites.html">Activites</a>
+        <a class="nav-link" href="calendrier.html">Calendrier</a>
+        <a class="nav-link" href="adhesion.html">Adhesion</a>
+        <a class="nav-link" href="galerie.html">Galerie</a>
+        <a class="nav-link" href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-grid">
+        <div>
+          <h1>Agenda du club</h1>
+          <p>Consultez toutes les dates confirmees et preparez vos prochaines sorties autour d Aix.</p>
+        </div>
+        <aside class="hero-panel">
+          <h2>Evenements a venir</h2>
+          <p><strong id="upcoming-count">0</strong> evenements a venir. Cliquez sur une sortie pour vous inscrire.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">Planning des sorties</h2>
+      <div class="cal-nav">
+        <button class="btn btn-secondary" id="cal-prev">&#8249; Precedent</button>
+        <span id="cal-month-label" class="cal-month-label"></span>
+        <button class="btn btn-secondary" id="cal-next">Suivant &#8250;</button>
+      </div>
+      <div id="calendar-grid"></div>
+    </section>
+  </main>
+
+  <div id="event-detail" class="event-detail-overlay"></div>
+
+  <footer>
+    <div class="container footer-wrap">
+      <span>© <span data-year></span> Club de Découverte</span>
+      <span>Planning mis a jour chaque semaine</span>
+    </div>
+  </footer>
+
+  <script src="assets/data.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>

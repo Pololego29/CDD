@@ -1,0 +1,10 @@
+Logo club
+
+Le site charge le logo ici:
+assets/logo-bdp-esaip-aix.png
+
+Action a faire:
+1. Enregistrez votre logo officiel (celui partage dans le chat) dans ce chemin.
+2. Gardez exactement ce nom de fichier.
+
+Aucune autre modification n est necessaire.
