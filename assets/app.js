@@ -627,8 +627,8 @@
     var items = [
       { value: data.activities.length, label: 'activites programmees' },
       { value: data.events.length, label: 'evenements saison 2026' },
-      { value: 180, label: 'membres actifs' },
-      { value: 12, label: 'benevoles organisateurs' }
+      { value: 8, label: 'membres actifs' },
+      { value: 3, label: 'benevoles organisateurs' }
     ];
     stats.innerHTML = items.map(function (item) {
       return '<article class="kpi reveal"><strong>' + item.value + '</strong><span>' + item.label + '</span></article>';
