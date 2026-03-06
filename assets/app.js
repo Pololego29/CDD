@@ -359,8 +359,8 @@
     var priceLabel = qs('#price-max-label');
     var durationFilter = qs('#duration-filter');
 
-    var categories = ['Toutes'].concat(Array.from(new Set(data.activities.map(function (a) { return a.category; }))));
-    var levels = ['Tous'].concat(Array.from(new Set(data.activities.map(function (a) { return a.level; }))));
+    var categories = ['Toutes'].concat(Array.from(new Set(data.activities.map(function (a) { return a.category; }))).sort());
+    var levels = ['Tous'].concat(Array.from(new Set(data.activities.map(function (a) { return a.level; }))).sort());
 
     category.innerHTML = categories.map(function (v) { return '<option value="' + v + '">' + v + '</option>'; }).join('');
     level.innerHTML = levels.map(function (v) { return '<option value="' + v + '">' + v + '</option>'; }).join('');
@@ -663,8 +663,32 @@
       { value: 3, label: 'benevoles organisateurs' }
     ];
     stats.innerHTML = items.map(function (item) {
-      return '<article class="kpi reveal"><strong>' + item.value + '</strong><span>' + item.label + '</span></article>';
+      return '<article class="kpi reveal"><strong data-count="' + item.value + '">0</strong><span>' + item.label + '</span></article>';
     }).join('');
+
+    function animateCounter(el, target) {
+      var duration = 1400;
+      var startTime = null;
+      function step(ts) {
+        if (!startTime) startTime = ts;
+        var progress = Math.min((ts - startTime) / duration, 1);
+        var eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.round(eased * target);
+        if (progress < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          var el = entry.target;
+          animateCounter(el, parseInt(el.getAttribute('data-count'), 10));
+          io.unobserve(el);
+        }
+      });
+    }, { threshold: 0.5 });
+    qsa('[data-count]', stats).forEach(function (el) { io.observe(el); });
 
     var previews = qs('#home-previews');
     if (previews) {

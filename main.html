@@ -31,85 +31,98 @@
     </div>
   </header>
 
-  <main class="container">
-    <section class="quick-bar">
-      <p><strong>Prochaine permanence:</strong> mercredi 18h-20h a la Maison des Associations</p>
-      <div class="actions">
-        <a class="btn btn-secondary" href="calendrier.html">Voir le calendrier</a>
-        <a class="btn btn-primary" href="contact.html">Contacter le CDD</a>
-      </div>
-    </section>
-
-    <section class="hero-full">
+  <main>
+    <section class="hero-cinematic">
+      <!-- Placez votre fichier assets/video-hero.mp4 pour activer la video -->
+      <video class="hero-video" autoplay muted loop playsinline>
+        <source src="assets/video-hero.mp4" type="video/mp4">
+      </video>
       <img class="hero-bg" src="https://commons.wikimedia.org/wiki/Special:FilePath/Cours_Mirabeau,_Aix-en-Provence.jpg" alt="Cours Mirabeau, Aix-en-Provence" loading="eager">
       <div class="hero-overlay"></div>
-      <div class="container hero-content">
-        <h1>Decouvrir Aix autrement, ensemble.</h1>
-        <p>Le CDD organise des sorties nature, ateliers culturels et evenements conviviaux pour etudiants et jeunes actifs sur Aix-en-Provence.</p>
-        <div class="actions">
+      <div class="hero-content-wrap">
+        <div class="hero-eyebrow">Club de Decouverte · Aix-en-Provence</div>
+        <h1 class="hero-title">Decouvrir Aix<br>autrement.</h1>
+        <p class="hero-sub">Sorties nature, ateliers culturels, evenements.<br>Une communaute ouverte a tous les etudiants ESAIP.</p>
+        <div class="hero-actions">
           <a class="btn btn-primary" href="activites.html">Voir les activites</a>
-          <a class="btn btn-white" href="adhesion.html">Devenir membre</a>
+          <a class="btn btn-white" href="adhesion.html">Rejoindre le club</a>
         </div>
       </div>
-    </section>
-
-    <section>
-      <h2 class="section-title">Le club en chiffres</h2>
-      <p class="section-lead">Des sorties regulieres, une communaute active et une programmation adaptee au rythme etudiant.</p>
-      <div id="home-stats" class="kpi-grid"></div>
-    </section>
-
-    <section>
-      <h2 class="section-title">A la une</h2>
-      <p class="section-lead">Un apercu des prochaines experiences proposees par notre equipe.</p>
-      <div id="home-previews" class="card-grid"></div>
-    </section>
-
-    <section>
-      <h2 class="section-title">Prochains evenements</h2>
-      <p class="section-lead">Les dates a ne pas rater pour les prochaines semaines.</p>
-      <ul id="home-events" class="list"></ul>
-    </section>
-
-    <section class="info-grid">
-      <article class="panel">
-        <h3>Newsletter club</h3>
-        <p class="muted">Recevez les nouvelles activites chaque lundi matin.</p>
-        <form id="newsletter-form" class="stack">
-          <label for="newsletter-email">Votre e-mail</label>
-          <input id="newsletter-email" name="email" type="email" placeholder="prenom.nom@email.com" required>
-          <button class="btn btn-primary" type="submit">S inscrire</button>
-        </form>
-        <p id="newsletter-feedback" class="notice" style="display:none"></p>
-      </article>
-      <article class="panel">
-        <h3>Infos pratiques</h3>
-        <ul class="list">
-          <li><span>Point accueil</span><strong>Maison des Associations</strong></li>
-          <li><span>Permanence</span><strong>Mercredi 18h-20h</strong></li>
-          <li><span>Telephone</span><strong>+33 6 12 34 56 78</strong></li>
-          <li><span>Email</span><strong>clubdecouvertes.aix@esaip.org</strong></li>
-        </ul>
-      </article>
-    </section>
-
-    <section class="panel">
-      <h2 class="section-title">FAQ rapide</h2>
-      <div class="faq-list">
-        <details>
-          <summary>Qui peut rejoindre le Club de Découverte ?</summary>
-          <p>Etudiants ESAIP, alumni et jeunes actifs interesses par les activites du club.</p>
-        </details>
-        <details>
-          <summary>Comment se passent les inscriptions aux sorties ?</summary>
-          <p>Depuis la page Activites, en un clic. L inscription est ensuite confirmee par le bureau.</p>
-        </details>
-        <details>
-          <summary>Faut-il etre sportif pour participer ?</summary>
-          <p>Non. Il y a des sorties tous niveaux, de la culture locale aux randonnees plus engagees.</p>
-        </details>
+      <div class="hero-scroll-cue">
+        <span>Decouvrir</span>
+        <div class="scroll-line"></div>
       </div>
     </section>
+
+    <div class="container">
+      <div class="quick-bar">
+        <p><strong>Prochaine permanence :</strong> mercredi 18h-20h a la Maison des Associations</p>
+        <div class="actions">
+          <a class="btn btn-secondary" href="calendrier.html">Voir le calendrier</a>
+          <a class="btn btn-primary" href="contact.html">Contacter le CDD</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <section class="home-kpi-section">
+        <h2 class="section-title reveal">Le club en chiffres</h2>
+        <p class="section-lead reveal">Des sorties regulieres, une communaute active et une programmation adaptee au rythme etudiant.</p>
+        <div id="home-stats" class="kpi-grid"></div>
+      </section>
+
+      <section>
+        <h2 class="section-title reveal">A la une</h2>
+        <p class="section-lead reveal">Un apercu des prochaines experiences proposees par notre equipe.</p>
+        <div id="home-previews" class="card-grid"></div>
+      </section>
+
+      <section>
+        <h2 class="section-title reveal">Prochains evenements</h2>
+        <p class="section-lead reveal">Les dates a ne pas rater pour les prochaines semaines.</p>
+        <ul id="home-events" class="list"></ul>
+      </section>
+
+      <section class="info-grid">
+        <article class="panel reveal">
+          <h3>Newsletter club</h3>
+          <p class="muted">Recevez les nouvelles activites chaque lundi matin.</p>
+          <form id="newsletter-form" class="stack">
+            <label for="newsletter-email">Votre e-mail</label>
+            <input id="newsletter-email" name="email" type="email" placeholder="prenom.nom@email.com" required>
+            <button class="btn btn-primary" type="submit">S inscrire</button>
+          </form>
+          <p id="newsletter-feedback" class="notice" style="display:none"></p>
+        </article>
+        <article class="panel reveal">
+          <h3>Infos pratiques</h3>
+          <ul class="list">
+            <li><span>Point accueil</span><strong>Maison des Associations</strong></li>
+            <li><span>Permanence</span><strong>Mercredi 18h-20h</strong></li>
+            <li><span>Telephone</span><strong>+33 6 12 34 56 78</strong></li>
+            <li><span>Email</span><strong>clubdecouvertes.aix@esaip.org</strong></li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="panel reveal">
+        <h2 class="section-title">FAQ rapide</h2>
+        <div class="faq-list">
+          <details>
+            <summary>Qui peut rejoindre le Club de Découverte ?</summary>
+            <p>Etudiants ESAIP, alumni et jeunes actifs interesses par les activites du club.</p>
+          </details>
+          <details>
+            <summary>Comment se passent les inscriptions aux sorties ?</summary>
+            <p>Depuis la page Activites, en un clic. L inscription est ensuite confirmee par le bureau.</p>
+          </details>
+          <details>
+            <summary>Faut-il etre sportif pour participer ?</summary>
+            <p>Non. Il y a des sorties tous niveaux, de la culture locale aux randonnees plus engagees.</p>
+          </details>
+        </div>
+      </section>
+    </div>
   </main>
 
   <footer>
