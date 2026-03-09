@@ -1319,7 +1319,6 @@ footer {
   animation: marquee 28s linear infinite;
 }
 
-.members-track:hover { animation-play-state: paused; }
 
 @keyframes marquee {
   from { transform: translateX(0); }
