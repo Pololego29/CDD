@@ -197,8 +197,8 @@ window.clubData = {
     }
   ],
   members: [
-    { name: 'Paul LAMBLIN', role: 'President', photo: 'assets/paul-lamblin.jpg', color: '#0071e3' },
-    { name: 'Membre 2', role: 'Vice-president', initials: 'M2', color: '#7c3aed' },
+    { name: 'Paul LAMBLIN', role: 'President & Chef de dev', photo: 'assets/paul-lamblin.jpg', color: '#0071e3' },
+    { name: 'Clement MARCO', role: 'Chef de dev adjoint', photo: 'assets/clement-marco.jpg', color: '#7c3aed' },
     { name: 'Membre 3', role: 'Tresorier', initials: 'M3', color: '#db2777' },
     { name: 'Membre 4', role: 'Secretaire', initials: 'M4', color: '#ea580c' },
     { name: 'Membre 5', role: 'Resp. sorties', initials: 'M5', color: '#059669' },
