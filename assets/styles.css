@@ -1301,6 +1301,101 @@ footer {
   .campus-block { height: 320px; }
 }
 
+/* ===== Members Carousel ===== */
+.members-section { margin-top: 3.5rem; }
+
+.members-carousel-wrap {
+  overflow: hidden;
+  width: 100%;
+  margin: 1.5rem 0 3rem;
+  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+
+.members-track {
+  display: flex;
+  gap: 1.25rem;
+  width: max-content;
+  animation: marquee 28s linear infinite;
+}
+
+.members-track:hover { animation-play-state: paused; }
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.member-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  width: 140px;
+  padding: 1.4rem 1rem;
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-sm);
+  flex-shrink: 0;
+  text-align: center;
+  transition: box-shadow var(--duration) var(--ease), transform var(--duration) var(--ease);
+}
+
+.member-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+}
+
+.member-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--line);
+}
+
+.member-avatar-initials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  border: none;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.member-name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+.member-role {
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+/* ===== Footer Social ===== */
+.footer-social {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.footer-social a {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: rgba(255,255,255,0.7);
+  font-size: 0.82rem;
+  transition: color var(--duration) var(--ease);
+}
+
+.footer-social a:hover { color: #fff; }
+
 @media (max-width: 640px) {
   .card-grid,
   .gallery-grid,

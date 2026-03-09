@@ -196,6 +196,16 @@ window.clubData = {
       creditUrl: 'https://commons.wikimedia.org/wiki/File:Calanque_d%27en_Vau.jpg'
     }
   ],
+  members: [
+    { name: 'Paul LAMBLIN', role: 'President', photo: 'assets/paul-lamblin.jpg', color: '#0071e3' },
+    { name: 'Membre 2', role: 'Vice-president', initials: 'M2', color: '#7c3aed' },
+    { name: 'Membre 3', role: 'Tresorier', initials: 'M3', color: '#db2777' },
+    { name: 'Membre 4', role: 'Secretaire', initials: 'M4', color: '#ea580c' },
+    { name: 'Membre 5', role: 'Resp. sorties', initials: 'M5', color: '#059669' },
+    { name: 'Membre 6', role: 'Communication', initials: 'M6', color: '#0891b2' },
+    { name: 'Membre 7', role: 'Evenements', initials: 'M7', color: '#d97706' },
+    { name: 'Membre 8', role: 'Membre actif', initials: 'M8', color: '#be123c' }
+  ],
   testimonials: [
     {
       name: 'Lucie M.',

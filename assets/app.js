@@ -699,6 +699,20 @@
       }).join('');
     }
 
+    // Members marquee
+    var membersTrack = qs('#members-track');
+    if (membersTrack && data.members && data.members.length) {
+      function memberCard(m) {
+        var avatar = m.photo
+          ? '<img class="member-avatar" src="' + m.photo + '" alt="' + m.name + '" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\'">' +
+            '<div class="member-avatar member-avatar-initials" style="background:' + m.color + ';display:none">' + (m.initials || m.name.charAt(0)) + '</div>'
+          : '<div class="member-avatar member-avatar-initials" style="background:' + m.color + '">' + (m.initials || m.name.charAt(0)) + '</div>';
+        return '<div class="member-card">' + avatar + '<strong class="member-name">' + m.name + '</strong><span class="member-role">' + m.role + '</span></div>';
+      }
+      var cardsHtml = data.members.map(memberCard).join('');
+      membersTrack.innerHTML = cardsHtml + cardsHtml; // doubled for seamless loop
+    }
+
     var events = qs('#home-events');
     if (events) {
       var next = data.events.slice().sort(function (a, b) { return a.date.localeCompare(b.date); }).slice(0, 4);
