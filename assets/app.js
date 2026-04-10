@@ -786,7 +786,7 @@
     if (!mapEl || !window.L) return;
 
     var map = L.map('activities-map', { zoomControl: true, scrollWheelZoom: false })
-      .setView([43.535, 5.420], 12);
+      .setView([43.526, 5.437], 13);
     setTimeout(function () { map.invalidateSize(); }, 200);
 
     // Marqueur ESAIP
@@ -799,7 +799,7 @@
       iconAnchor: [20, 40],
       popupAnchor: [0, -44]
     });
-    L.marker([43.5456, 5.3876], { icon: esaipIcon })
+    L.marker([43.5317215, 5.4285761], { icon: esaipIcon })
       .addTo(map)
       .bindPopup(L.popup({ maxWidth: 220 }).setContent(
         '<div style="font-family:system-ui,sans-serif">' +

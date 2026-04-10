@@ -24,7 +24,7 @@ window.clubData = {
       imageCreditUrl: 'https://commons.wikimedia.org/wiki/File:Bronze_Avery_Concert_2023_Brighton_Music_Hall.jpg',
       instagramUrl: 'https://www.instagram.com/p/DTnuupWAvq9/',
       description: 'La plus grande salle de la region (2 000 places). Mardis : bar a tarif avantageux, jeux de plateau, jam session. Concerts gratuits le 1er mercredi du mois. Prochains evenements : Headbang Festival, Roller Disco, Aix Biere Festival.',
-      lat: 43.5368, lng: 5.4085
+      lat: 43.5192931, lng: 5.4218138
     },
     {
       id: 'act-musee-granet',
@@ -43,7 +43,7 @@ window.clubData = {
       imageCreditUrl: 'https://commons.wikimedia.org/wiki/File:Mus%C3%A9e_Granet_Aix_en_Provence.jpg',
       instagramUrl: 'https://www.instagram.com/p/DWuZgO7AnGU/',
       description: 'Collection permanente du XIVe au XXe siecle avec une superbe salle Cezanne. Entree gratuite pour les etudiants (carte ou certificat de scolarite requis). Acces bus arret Saint-Jean. Ouvert mar-dim de 12h a 18h.',
-      lat: 43.5268, lng: 5.4501
+      lat: 43.5253540, lng: 5.4529491
     },
     {
       id: 'act-bederie',
@@ -62,7 +62,7 @@ window.clubData = {
       imageCreditUrl: 'https://commons.wikimedia.org/wiki/File:Bookshop_interior_by_night_(30168164382).jpg',
       instagramUrl: 'https://www.instagram.com/p/DWlyXC5AiKw/',
       description: 'La librairie de reference du centre-ville pour BD, manga et comics. Salle dediee pour jeux de role, lectures et dedicaces. A 25 min a pied de l ESAIP. Ouvert lun-sam de 10h a 19h. Entree libre.',
-      lat: 43.5289, lng: 5.4475
+      lat: 43.5295074, lng: 5.4468103
     },
     {
       id: 'act-bloc-session',
@@ -81,7 +81,7 @@ window.clubData = {
       imageCreditUrl: 'https://commons.wikimedia.org/wiki/File:Man_climbing_in_bouldering_gym.jpg',
       instagramUrl: 'https://www.instagram.com/p/DTnpDbiAjGW/',
       description: 'Seance de bloc pour se vider la tete apres les cours. Tarif a 13 EUR en heures creuses (avant 16h semaine). Abonnement Happy Hour a 30 EUR/mois. Ouvert 7j/7 de 12h a 22h. A 18 min a pied de l ESAIP.',
-      lat: 43.5295, lng: 5.4445
+      lat: 43.5276337, lng: 5.4367554
     }
   ],
   events: [
