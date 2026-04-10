@@ -198,13 +198,13 @@ window.clubData = {
   ],
   members: [
     { name: 'Paul LAMBLIN', role: 'President & Chef de dev', photo: 'assets/paul-lamblin.jpg', color: '#0071e3' },
-    { name: 'Clement MARCO', role: 'Chef de dev adjoint', photo: 'assets/clement-marco.jpg', color: '#7c3aed' },
+    { name: 'Clément MARCO', role: 'Chef de dev adjoint', photo: 'assets/clement-marco.jpg', color: '#7c3aed' },
     { name: 'Amine BENBOUCHTA', role: 'Tresorier', photo: 'assets/amine-benbouchta.jpg', color: '#db2777' },
     { name: 'Emmeline WAGNER', role: 'Secretaire', photo: 'assets/emmeline-wagner.png', color: '#ea580c' },
     { name: 'Mouad DERRAZ', role: 'Resp. sorties', photo: 'assets/mouad-derraz.jpg', color: '#059669' },
-    { name: 'Ruben COHEN', role: 'Communication', photo: 'assets/ruben-cohen.jpg', color: '#0891b2' },
+    { name: 'Ruben COHEN', role: 'Tresorier', photo: 'assets/ruben-cohen.jpg', color: '#0891b2' },
     { name: 'Sacha ROSTAING', role: 'Evenements', photo: 'assets/sacha-rostaing.jpg', color: '#d97706' },
-    { name: 'Membre 8', role: 'Membre actif', initials: 'M8', color: '#be123c' }
+    { name: 'IKRAM AYAD', role: 'Responsable communication', photo: 'assets/IKRAM AYAD.jpg', initials: 'IA', color: '#be123c' }
   ],
   testimonials: [
     {
