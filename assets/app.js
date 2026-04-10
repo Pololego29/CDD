@@ -804,7 +804,7 @@
       .bindPopup(L.popup({ maxWidth: 220 }).setContent(
         '<div style="font-family:system-ui,sans-serif">' +
         '<div style="font-weight:700;font-size:0.95rem;margin-bottom:4px;color:#003087">ESAIP Aix-en-Provence</div>' +
-        '<div style="font-size:0.8rem;color:#555">&#128205; 851 all\u00e9e de la Pomone<br>13090 Aix-en-Provence</div>' +
+        '<div style="font-size:0.8rem;color:#555">&#128205; 851 All\u00e9e de Pomone, B\u00e2t. B & C<br>13090 Aix-en-Provence</div>' +
         '<div style="font-size:0.8rem;color:#555;margin-top:4px">&#128652; Bus ligne 3 \u2013 Arr\u00eat Dalmas</div>' +
         '</div>'
       ));

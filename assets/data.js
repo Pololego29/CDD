@@ -70,7 +70,7 @@ window.clubData = {
       category: 'Sport',
       level: 'Tous niveaux',
       duration: '2h',
-      meetingPoint: '4 rue des Boeufs, Aix-en-Provence',
+      meetingPoint: 'BS.20, 4 Rue des Boeufs, 13100 Aix-en-Provence',
       nextDate: '2026-04-23',
       priceMember: 13,
       priceGuest: 15,
