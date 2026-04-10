@@ -783,6 +783,7 @@
 
     var map = L.map('activities-map', { zoomControl: true, scrollWheelZoom: false })
       .setView([43.5297, 5.4474], 12);
+    setTimeout(function () { map.invalidateSize(); }, 200);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '\u00a9 <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',

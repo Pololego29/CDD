@@ -640,9 +640,9 @@ input[type="range"] {
 .map-section { margin-bottom: 2.5rem; }
 
 .map-card {
-  border-radius: var(--radius);
+  border-radius: var(--radius-md);
   overflow: hidden;
-  box-shadow: var(--shadow-card);
+  box-shadow: var(--shadow-md);
   border: 1px solid var(--line);
   position: relative;
 }
