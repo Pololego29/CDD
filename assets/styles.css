@@ -629,6 +629,33 @@ input[type="range"] {
 .stack { display: grid; gap: 0.7rem; }
 .muted { color: var(--muted); }
 
+.insta-link {
+  color: #e1306c;
+  font-weight: 600;
+  text-decoration: none;
+}
+.insta-link:hover { text-decoration: underline; }
+
+/* ===== Carte Leaflet ===== */
+.map-section { margin-bottom: 2.5rem; }
+
+.map-card {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--line);
+  position: relative;
+}
+
+#activities-map {
+  height: 420px;
+  width: 100%;
+}
+
+@media (max-width: 600px) {
+  #activities-map { height: 300px; }
+}
+
 input:not([type="range"]),
 select,
 textarea {

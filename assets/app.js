@@ -125,6 +125,7 @@
       '<p class="muted">' + formatDate(item.date || item.nextDate) + (item.time ? ' \u00e0 ' + item.time : '') + '</p>' +
       '<p><strong>Lieu\u00a0:</strong> ' + (item.place || item.meetingPoint || '') + '</p>' +
       (item.description ? '<p class="muted">' + item.description + '</p>' : '') +
+      (item.instagramUrl ? '<p class="muted"><a class="insta-link" href="' + item.instagramUrl + '" target="_blank" rel="noreferrer">&#128247; Voir sur Instagram \u2197</a></p>' : '') +
       (capacity ? '<p class="muted">Capacit\u00e9\u00a0: ' + capacity + ' places</p>' : '') +
       '<div class="interest-row">' +
       (isInterested
@@ -336,6 +337,7 @@
         '<p><strong>Rendez-vous:</strong> ' + item.meetingPoint + '</p>' +
         '<p><strong>Tarif membre:</strong> ' + euro(item.priceMember) + '</p>' +
         (item.imageCreditUrl ? '<p class="muted">Source: <a href="' + item.imageCreditUrl + '" target="_blank" rel="noreferrer">' + item.imageCredit + '</a></p>' : '') +
+        (item.instagramUrl ? '<p class="muted"><a class="insta-link" href="' + item.instagramUrl + '" target="_blank" rel="noreferrer">&#128247; Voir sur Instagram</a></p>' : '') +
         '</div>' +
         '<div class="interest-row">' +
         '<button class="btn ' + (isInterested ? 'btn-interested-active' : 'btn-primary') + '" data-open-activity="' + item.id + '">' +
@@ -774,6 +776,56 @@
     els.forEach(function (el) { io.observe(el); });
   }
 
+  // ===== Carte Leaflet des activites =====
+  function initActivityMap() {
+    var mapEl = qs('#activities-map');
+    if (!mapEl || !window.L) return;
+
+    var map = L.map('activities-map', { zoomControl: true, scrollWheelZoom: false })
+      .setView([43.5297, 5.4474], 12);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '\u00a9 <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+      maxZoom: 19
+    }).addTo(map);
+
+    var catColors = {
+      'Nature': '#059669',
+      'Culture locale': '#7c3aed',
+      'Musique': '#db2777',
+      'Aventure': '#ea580c',
+      'Sport': '#0071e3',
+      'Creatif': '#d97706'
+    };
+
+    data.activities.forEach(function (item) {
+      if (!item.lat || !item.lng) return;
+      var color = catColors[item.category] || '#0071e3';
+      var icon = L.divIcon({
+        className: '',
+        html: '<div style="width:18px;height:18px;border-radius:50%;background:' + color + ';border:3px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,0.35)"></div>',
+        iconSize: [18, 18],
+        iconAnchor: [9, 9],
+        popupAnchor: [0, -14]
+      });
+      var price = item.priceMember === 0 ? 'Gratuit \u00e9tudiants' : item.priceMember + ' \u20ac';
+      var popupHtml =
+        '<div style="font-family:system-ui,sans-serif;min-width:180px">' +
+        '<span style="display:inline-block;background:' + color + ';color:#fff;padding:2px 9px;border-radius:20px;font-size:0.7rem;font-weight:700;letter-spacing:.03em">' + item.category + '</span>' +
+        '<div style="font-weight:700;font-size:0.95rem;margin:7px 0 4px;color:#111">' + item.title + '</div>' +
+        '<div style="font-size:0.8rem;color:#555;margin-bottom:2px">&#128205; ' + item.meetingPoint + '</div>' +
+        '<div style="font-size:0.8rem;color:#555;margin-bottom:2px">&#127912; ' + price + '</div>' +
+        (item.instagramUrl ? '<a href="' + item.instagramUrl + '" target="_blank" rel="noreferrer" style="font-size:0.78rem;color:#e1306c;font-weight:600;text-decoration:none">&#128247; Voir sur Instagram</a>' : '') +
+        '</div>';
+      L.marker([item.lat, item.lng], { icon: icon })
+        .addTo(map)
+        .bindPopup(L.popup({ maxWidth: 240 }).setContent(popupHtml));
+    });
+
+    // Re-centrer si fenetre redimensionnee
+    window.addEventListener('resize', function () { map.invalidateSize(); });
+  }
+
   // ===== Bouton haut de page =====
   function initBackToTop() {
     var button = document.createElement('button');
@@ -796,6 +848,7 @@
     initModal();
     initHomePage();
     initActivitiesPage();
+    initActivityMap();
     initCalendarPage();
     initMembershipPage();
     initGalleryPage();
