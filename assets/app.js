@@ -669,6 +669,10 @@
       requestAnimationFrame(step);
     }
 
+    // Injecter dynamiquement le nombre d'activites proposees
+    var actStat = qs('[data-stat="activities"]');
+    if (actStat) actStat.setAttribute('data-count', String(data.activities.length));
+
     var countEls = qsa('[data-count]');
     if (countEls.length && 'IntersectionObserver' in window) {
       var cio = new IntersectionObserver(function (entries) {
@@ -782,11 +786,31 @@
     if (!mapEl || !window.L) return;
 
     var map = L.map('activities-map', { zoomControl: true, scrollWheelZoom: false })
-      .setView([43.5297, 5.4474], 12);
+      .setView([43.535, 5.420], 12);
     setTimeout(function () { map.invalidateSize(); }, 200);
 
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '\u00a9 <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+    // Marqueur ESAIP
+    var esaipIcon = L.divIcon({
+      className: '',
+      html: '<div style="background:#fff;border:2.5px solid #003087;border-radius:10px;padding:3px;box-shadow:0 2px 8px rgba(0,0,0,0.35);width:40px;height:40px;display:flex;align-items:center;justify-content:center">' +
+            '<img src="https://www.esaip.org/wp-content/themes/esaip-v2/assets/images/Logo-ESAIP_2024.svg" style="width:32px;height:32px;object-fit:contain" alt="ESAIP">' +
+            '</div>',
+      iconSize: [40, 40],
+      iconAnchor: [20, 40],
+      popupAnchor: [0, -44]
+    });
+    L.marker([43.5456, 5.3876], { icon: esaipIcon })
+      .addTo(map)
+      .bindPopup(L.popup({ maxWidth: 220 }).setContent(
+        '<div style="font-family:system-ui,sans-serif">' +
+        '<div style="font-weight:700;font-size:0.95rem;margin-bottom:4px;color:#003087">ESAIP Aix-en-Provence</div>' +
+        '<div style="font-size:0.8rem;color:#555">&#128205; 851 all\u00e9e de la Pomone<br>13090 Aix-en-Provence</div>' +
+        '<div style="font-size:0.8rem;color:#555;margin-top:4px">&#128652; Bus ligne 3 \u2013 Arr\u00eat Dalmas</div>' +
+        '</div>'
+      ));
+
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+      attribution: '\u00a9 <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors \u00a9 <a href="https://carto.com/attributions">CARTO</a>',
       maxZoom: 19
     }).addTo(map);
 
