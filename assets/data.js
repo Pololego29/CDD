@@ -9,7 +9,7 @@ window.clubData = {
   activities: [
     {
       id: 'act-6mic',
-      title: 'Soiree au 6MIC',
+      title: '6MIC',
       category: 'Musique',
       level: 'Tous niveaux',
       duration: '3h',
