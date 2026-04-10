@@ -6,7 +6,13 @@
       "WebFetch(domain:www.instagram.com)",
       "WebFetch(domain:commons.wikimedia.org)",
       "Bash(git config:*)",
-      "WebFetch(domain:nominatim.openstreetmap.org)"
+      "WebFetch(domain:nominatim.openstreetmap.org)",
+      "WebFetch(domain:www.le6mic.fr)",
+      "WebFetch(domain:www.museegranet-aixenprovence.fr)",
+      "WebFetch(domain:blocsession.com)",
+      "WebFetch(domain:6micaix.fr)",
+      "WebFetch(domain:www.labederie.com)",
+      "WebFetch(domain:www.6mic.fr)"
     ]
   }
 }

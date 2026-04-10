@@ -823,15 +823,27 @@
       'Creatif': '#d97706'
     };
 
+    var activityLogos = {
+      'act-6mic':        { src: 'https://www.google.com/s2/favicons?sz=64&domain=le6mic.fr',                                               fb: '🎵' },
+      'act-musee-granet':{ src: 'https://museegranet.org/fileadmin/mediatheque/logos/musee-granet-logo.svg',                               fb: '🎨' },
+      'act-bederie':     { src: 'https://www.google.com/s2/favicons?sz=64&domain=labederie.com',                                           fb: '📚' },
+      'act-bloc-session':{ src: 'https://www.blocsession.com/wp-content/uploads/2025/01/logo-groupe-1.png',                               fb: '🧗' }
+    };
+
     data.activities.forEach(function (item) {
       if (!item.lat || !item.lng) return;
       var color = catColors[item.category] || '#0071e3';
+      var logo = activityLogos[item.id] || { src: '', fb: '📍' };
+      var imgHtml = logo.src
+        ? '<img src="' + logo.src + '" style="width:30px;height:30px;object-fit:contain" onerror="this.style.display=\'none\';this.nextSibling.style.display=\'block\'">' +
+          '<span style="display:none;font-size:18px">' + logo.fb + '</span>'
+        : '<span style="font-size:18px">' + logo.fb + '</span>';
       var icon = L.divIcon({
         className: '',
-        html: '<div style="width:18px;height:18px;border-radius:50%;background:' + color + ';border:3px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,0.35)"></div>',
-        iconSize: [18, 18],
-        iconAnchor: [9, 9],
-        popupAnchor: [0, -14]
+        html: '<div style="background:#fff;border:2.5px solid ' + color + ';border-radius:10px;padding:3px;box-shadow:0 2px 8px rgba(0,0,0,0.35);width:40px;height:40px;display:flex;align-items:center;justify-content:center">' + imgHtml + '</div>',
+        iconSize: [40, 40],
+        iconAnchor: [20, 40],
+        popupAnchor: [0, -44]
       });
       var price = item.priceMember === 0 ? 'Gratuit \u00e9tudiants' : item.priceMember + ' \u20ac';
       var popupHtml =
