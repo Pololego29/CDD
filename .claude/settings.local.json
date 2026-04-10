@@ -5,7 +5,8 @@
       "WebFetch(domain:www.esaip.org)",
       "WebFetch(domain:www.instagram.com)",
       "WebFetch(domain:commons.wikimedia.org)",
-      "Bash(git config:*)"
+      "Bash(git config:*)",
+      "WebFetch(domain:nominatim.openstreetmap.org)"
     ]
   }
 }
