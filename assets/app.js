@@ -47,7 +47,7 @@
     if (year) year.textContent = String(new Date().getFullYear());
 
     qsa('[data-club-logo]').forEach(function (logo) {
-      var src = data.club && data.club.logo ? data.club.logo : 'assets/logo-club-decouvertes.png';
+      var src = data.club && data.club.logo ? data.club.logo : 'assets/logo-bdp-esaip-aix.png';
       logo.setAttribute('src', src);
       logo.setAttribute('alt', (data.club && data.club.name ? data.club.name : 'Logo du club') + ' logo');
       logo.addEventListener('error', function () {
