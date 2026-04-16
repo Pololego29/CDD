@@ -172,7 +172,7 @@ window.clubData = {
   ],
   members: [
     { name: 'Paul LAMBLIN', role: 'President & Chef de dev', photo: 'assets/paul-lamblin.jpg', color: '#0071e3' },
-    { name: 'Clément MARCO', role: 'Chef de dev adjoint', photo: 'assets/clement-marco.jpg', color: '#7c3aed' },
+    { name: 'Clément MARCO', role: 'Chef de dev adjoint', photo: 'assets/clement-marco.png', color: '#7c3aed' },
     { name: 'Amine BENBOUCHTA', role: 'Tresorier', photo: 'assets/amine-benbouchta.jpg', color: '#db2777' },
     { name: 'Emmeline WAGNER', role: 'Secretaire', photo: 'assets/emmeline-wagner.png', color: '#ea580c' },
     { name: 'Mouad DERRAZ', role: 'Resp. sorties', photo: 'assets/mouad-derraz.jpg', color: '#059669' },
