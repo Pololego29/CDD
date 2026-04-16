@@ -1,10 +1,10 @@
 window.clubData = {
   club: {
-    name: 'Club de Découverte',
+    name: 'Club Découverte',
     city: 'Aix-en-Provence',
     email: 'clubdecouvertes.aix@esaip.org',
     phone: '+33 6 11 56 33 70',
-    logo: 'assets/logo-bdp-esaip-aix.png'
+    logo: 'assets/logo_club_decouvertes.png'
   },
   activities: [
     {
@@ -84,62 +84,7 @@ window.clubData = {
       lat: 43.5276337, lng: 5.4367554
     }
   ],
-  events: [
-    {
-      id: 'evt-welcome',
-      title: 'Soiree accueil nouveaux membres',
-      date: '2026-02-10',
-      time: '19:00',
-      place: 'Le 6MIC, Aix-en-Provence',
-      type: 'Club',
-      seats: 120
-    },
-    {
-      id: 'evt-victoire-run',
-      title: 'Sortie trail decouverte',
-      date: '2026-02-21',
-      time: '08:30',
-      place: 'Saint-Antonin-sur-Bayon',
-      type: 'Sport',
-      seats: 35
-    },
-    {
-      id: 'evt-carnaval',
-      title: 'Parcours carnaval d Aix',
-      date: '2026-03-07',
-      time: '15:00',
-      place: 'Cours Mirabeau',
-      type: 'Ville',
-      seats: 80
-    },
-    {
-      id: 'evt-calanques-day',
-      title: 'Journee mer et nature',
-      date: '2026-03-14',
-      time: '09:00',
-      place: 'Cassis',
-      type: 'Aventure',
-      seats: 40
-    },
-    {
-      id: 'evt-spring-fair',
-      title: 'Salon associatif de printemps',
-      date: '2026-04-04',
-      time: '10:00',
-      place: 'Place des Precheurs',
-      type: 'Club',
-      seats: 200
-    },
-    {
-      id: 'evt-night-photo',
-      title: 'Balade photo de nuit',
-      date: '2026-04-17',
-      time: '20:30',
-      place: 'Centre ancien',
-      type: 'Creatif',
-      seats: 22
-    }
-  ],
+  events: [],
   gallery: [
     {
       title: 'Panorama Sainte-Victoire',
