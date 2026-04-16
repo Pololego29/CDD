@@ -1,7 +1,7 @@
 Logo club
 
 Le site charge le logo ici:
-assets/logo-bdp-esaip-aix.png
+assets/logo-club-decouvertes.png
 
 Action a faire:
 1. Enregistrez votre logo officiel (celui partage dans le chat) dans ce chemin.
