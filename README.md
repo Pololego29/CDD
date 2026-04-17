@@ -14,6 +14,7 @@ Activités, carte interactive, calendrier, galerie photo et contact.
 | Logique | Vanilla JS — `assets/app.js` (aucune dépendance) |
 | Données | `assets/data.js` — objet global `window.clubData` |
 | Carte | [Leaflet.js](https://leafletjs.com/) 1.9.4 + tuiles CartoDB Voyager |
+| Polices | **Atkinson Hyperlegible** (corps) + **Lexend** (titres) — Google Fonts, adaptées DYS |
 | Formulaires | [Web3Forms](https://web3forms.com/) (optionnel) — fallback `mailto:` |
 | Persistance | `localStorage` (inscriptions, intérêts, newsletter) |
 | Hébergement | [Vercel](https://vercel.com/) — site statique, aucun backend |
@@ -84,7 +85,7 @@ Aucun backend, aucune base de données.
   level: 'Tous niveaux',
   duration: '2h',
   meetingPoint: 'Adresse complète',
-  nextDate: 'AAAA-MM-JJ',
+  nextDate: 'AAAA-MM-JJ',     // utilisé en interne (calendrier) — non affiché sur la page Activités
   priceMember: 0,              // 0 = gratuit membres
   priceGuest: 5,
   slots: 20,
@@ -134,6 +135,17 @@ Aucun backend, aucune base de données.
 ### Modifier les membres
 
 Dans `assets/data.js` > section `members` — mettre à jour `name`, `role`, `photo` (chemin relatif `assets/`) et `color` (couleur de l'avatar fallback).
+
+---
+
+## Accessibilité DYS
+
+Les polices ont été choisies pour faciliter la lecture aux personnes dyslexiques, dyspraxiques et dysorthographiques :
+
+- **Atkinson Hyperlegible** (corps de texte) — conçue par le Braille Institute, chaque lettre est clairement distincte pour éviter les confusions visuelles
+- **Lexend** (titres et UI) — conçue pour réduire la charge cognitive de lecture, validée par des études cliniques
+
+Ces deux polices sont disponibles gratuitement sur Google Fonts et ne dégradent pas le rendu visuel du site.
 
 ---
 
