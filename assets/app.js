@@ -441,9 +441,7 @@
 
     var allItems = data.events.map(function (e) {
       return Object.assign({}, e, { kind: 'event' });
-    }).concat(data.activities.map(function (a) {
-      return Object.assign({}, a, { kind: 'activity', date: a.nextDate, place: a.meetingPoint });
-    }));
+    });
 
     var now = new Date();
     var currentYear = now.getFullYear();
@@ -481,8 +479,10 @@
           html += '<div class="cal-events">';
           dayItems.forEach(function (item) {
             var count = interests[item.id] || 0;
-            html += '<button class="cal-evt-chip" data-event-id="' + item.id + '" data-kind="' + item.kind + '">' +
-              '<span class="cal-evt-title">' + item.title + '</span>' +
+            var featured = item.featured ? ' data-featured="true"' : '';
+            var prefix = item.featured ? '🎵 ' : '';
+            html += '<button class="cal-evt-chip" data-event-id="' + item.id + '" data-kind="' + item.kind + '"' + featured + '>' +
+              '<span class="cal-evt-title">' + prefix + item.title + '</span>' +
               (count > 0 ? '<span class="cal-evt-badge">' + count + '</span>' : '') +
               '</button>';
           });

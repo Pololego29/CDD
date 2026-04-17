@@ -84,7 +84,22 @@ window.clubData = {
       lat: 43.5276337, lng: 5.4367554
     }
   ],
-  events: [],
+  events: [
+    {
+      id: 'evt-julien-lieb',
+      title: 'Concert Julien Lieb',
+      date: '2026-04-29',
+      time: '20h00',
+      place: '160 rue Pascal Duverger — 6MIC, Aix-en-Provence',
+      type: 'Concert',
+      featured: true,
+      image: 'assets/6mic/IMG_0993.jpg',
+      imageAlt: 'Soirée au 6MIC',
+      description: 'Concert de Julien Lieb au 6MIC, la plus grande salle de musique de la région (2 000 places). Un événement exceptionnel à ne pas manquer — venez nombreux !',
+      instagramUrl: 'https://www.instagram.com/p/DTnuupWAvq9/',
+      slots: 50
+    }
+  ],
   gallery: [
     { title: 'Musée Granet', caption: 'Collections du Musée Granet, Aix-en-Provence.', image: 'assets/granet/IMG_0972.jpg', imageAlt: 'Musée Granet — salle des collections' },
     { title: 'Musée Granet', caption: 'Peintures et sculptures de la collection permanente.', image: 'assets/granet/IMG_0973.jpg', imageAlt: 'Musée Granet — œuvres' },
