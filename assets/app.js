@@ -763,8 +763,7 @@
   // ===== Galerie =====
   function initGalleryPage() {
     var gallery = qs('#gallery-list');
-    var testimonials = qs('#testimonials-list');
-    if (!gallery || !testimonials) return;
+    if (!gallery) return;
 
     gallery.innerHTML = data.gallery.map(function (item) {
       return (
@@ -779,14 +778,17 @@
       );
     }).join('');
 
-    testimonials.innerHTML = data.testimonials.map(function (item) {
-      return (
-        '<article class="card reveal">' +
-        '<p class="quote">"' + item.quote + '"</p>' +
-        '<p class="quote-author">' + item.name + ' - ' + item.role + '</p>' +
-        '</article>'
-      );
-    }).join('');
+    var testimonials = qs('#testimonials-list');
+    if (testimonials) {
+      testimonials.innerHTML = data.testimonials.map(function (item) {
+        return (
+          '<article class="card reveal">' +
+          '<p class="quote">"' + item.quote + '"</p>' +
+          '<p class="quote-author">' + item.name + ' - ' + item.role + '</p>' +
+          '</article>'
+        );
+      }).join('');
+    }
   }
 
   // ===== Scroll reveal (IntersectionObserver) =====
@@ -874,7 +876,8 @@
       });
       var price = item.priceMember === 0 ? 'Gratuit \u00e9tudiants' : item.priceMember + ' \u20ac';
       var popupHtml =
-        '<div style="font-family:system-ui,sans-serif;min-width:180px">' +
+        '<div style="font-family:system-ui,sans-serif;min-width:200px">' +
+        (item.image ? '<img src="' + item.image + '" alt="' + (item.imageAlt || item.title) + '" style="width:100%;height:110px;object-fit:cover;border-radius:8px;margin-bottom:8px;display:block">' : '') +
         '<span style="display:inline-block;background:' + color + ';color:#fff;padding:2px 9px;border-radius:20px;font-size:0.7rem;font-weight:700;letter-spacing:.03em">' + item.category + '</span>' +
         '<div style="font-weight:700;font-size:0.95rem;margin:7px 0 4px;color:#111">' + item.title + '</div>' +
         '<div style="font-size:0.8rem;color:#555;margin-bottom:2px">&#128205; ' + item.meetingPoint + '</div>' +
