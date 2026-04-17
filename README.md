@@ -1,21 +1,22 @@
-# Club de Découverte — Site web
+# Club Découverte — Site web
 
-Site officiel du **Club de Découverte** de l'ESAIP Aix-en-Provence.  
-Présente les activités, la carte interactive, le calendrier, la galerie et les contacts du club.
+Site officiel du **Club Découverte** de l'ESAIP Aix-en-Provence.  
+Activités, carte interactive, calendrier, galerie photo et contact.
 
 ---
 
 ## Stack technique
 
-| Couche | Techno |
+| Couche | Technologie |
 |---|---|
-| Structure | HTML5 sémantique |
-| Style | CSS3 (variables, grid, flexbox) — fichier unique `assets/styles.css` |
-| Logique | Vanilla JS — `assets/app.js` |
-| Données | `assets/data.js` (objet global `window.clubData`) |
+| Structure | HTML5 sémantique (6 pages) |
+| Style | CSS3 — variables custom, grid, flexbox — fichier unique `assets/styles.css` |
+| Logique | Vanilla JS — `assets/app.js` (aucune dépendance) |
+| Données | `assets/data.js` — objet global `window.clubData` |
 | Carte | [Leaflet.js](https://leafletjs.com/) 1.9.4 + tuiles CartoDB Voyager |
-| Icônes map | Favicons/logos officiels des lieux |
-| Hébergement | Statique — aucun backend requis |
+| Formulaires | [Web3Forms](https://web3forms.com/) (optionnel) — fallback `mailto:` |
+| Persistance | `localStorage` (inscriptions, intérêts, newsletter) |
+| Hébergement | [Vercel](https://vercel.com/) — site statique, aucun backend |
 
 ---
 
@@ -23,96 +24,165 @@ Présente les activités, la carte interactive, le calendrier, la galerie et les
 
 ```
 CDD/
-├── main.html             # Page d'accueil
-├── activites.html        # Catalogue + carte des activités
-├── calendrier.html       # Calendrier des événements
-├── galerie.html          # Galerie photos + témoignages
-├── contact.html          # Formulaire de contact
-├── mentions-legales.html # Mentions légales
-├── adhesion.html         # (conservé mais non lié dans la nav)
+├── main.html                 # Accueil — hero, stats, aperçu activités, équipe, FAQ
+├── activites.html            # Catalogue filtrable + carte Leaflet des activités
+├── calendrier.html           # Calendrier mensuel des événements
+├── galerie.html              # Galerie photos des sorties
+├── contact.html              # Formulaire de contact
+├── mentions-legales.html     # Mentions légales & politique de confidentialité
+├── vercel.json               # Rewrite / → main.html
 └── assets/
-    ├── data.js           # ← TOUTES les données du club (activités, membres, galerie…)
-    ├── app.js            # Logique JS (carte, filtres, modals, calendrier…)
-    ├── styles.css        # Styles globaux
+    ├── data.js               # ← Toutes les données (activités, membres, galerie, events)
+    ├── app.js                # Logique JS (carte, filtres, modals, calendrier, galerie…)
+    ├── styles.css            # Styles globaux (thème, composants, responsive)
+    ├── logo_club_decouvertes.png
     ├── logo-bdp-esaip-aix.png
-    └── [photos membres]
+    ├── [photos membres].jpg/png
+    ├── granet/               # 7 photos — Musée Granet
+    ├── bederie/              # 7 photos — La Béderie
+    ├── escalade/             # 7 photos — Bloc Session
+    └── 6mic/                 # 4 photos — 6MIC
 ```
 
 ---
 
-## Lancer le site en local
+## Lancer en local
 
-Aucune installation requise. Ouvrir avec un serveur local pour éviter les restrictions `file://` :
+Aucune installation requise. Un serveur local est nécessaire pour éviter les restrictions `file://` (images, JS modules) :
 
-**Option 1 — VS Code Live Server**
+**VS Code — Live Server**
 1. Installer l'extension [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
 2. Clic droit sur `main.html` → **Open with Live Server**
 
-**Option 2 — Python**
+**Python**
 ```bash
 cd CDD
 python3 -m http.server 8080
-# Ouvrir http://localhost:8080/main.html
+# → http://localhost:8080
+```
+
+**Node**
+```bash
+npx serve .
 ```
 
 ---
 
 ## Modifier les données
 
-Toutes les données sont centralisées dans [`assets/data.js`](assets/data.js).  
-Aucun backend, aucune base de données — tout est dans cet objet JS.
+Toutes les données sont centralisées dans [`assets/data.js`](assets/data.js) — objet `window.clubData`.  
+Aucun backend, aucune base de données.
 
 ### Ajouter une activité
 
 ```js
-// Dans assets/data.js > activities: [...]
+// assets/data.js > activities: [...]
 {
-  id: 'act-mon-id-unique',
-  title: 'Nom de l activite',
-  category: 'Culture locale',   // filtre automatique
+  id: 'act-mon-id',            // identifiant unique (kebab-case)
+  title: 'Nom de l\'activité',
+  category: 'Culture locale',  // alimente le filtre automatiquement
   level: 'Tous niveaux',
   duration: '2h',
-  meetingPoint: 'Adresse du lieu',
+  meetingPoint: 'Adresse complète',
   nextDate: 'AAAA-MM-JJ',
-  priceMember: 0,               // 0 = gratuit étudiants
+  priceMember: 0,              // 0 = gratuit membres
   priceGuest: 5,
   slots: 20,
-  image: 'https://...',
-  imageAlt: 'Description image',
+  image: 'assets/dossier/photo.jpg',
+  imageAlt: 'Description de l\'image',
+  imageCredit: '',
+  imageCreditUrl: '',
   instagramUrl: 'https://www.instagram.com/p/...',
-  description: 'Description courte.',
-  lat: 43.5253,                 // coordonnées GPS pour la carte
+  description: 'Description affichée sur la carte et dans la modale.',
+  lat: 43.5253,                // coordonnées GPS (marqueur carte)
   lng: 5.4529
+}
+```
+
+### Ajouter un événement au calendrier
+
+```js
+// assets/data.js > events: [...]
+{
+  id: 'evt-mon-id',
+  title: 'Nom de l\'événement',
+  date: 'AAAA-MM-JJ',
+  time: '20h00',
+  place: 'Lieu, Aix-en-Provence',
+  type: 'Concert',
+  featured: true,              // true = affichage en gros dans le calendrier
+  image: 'assets/dossier/photo.jpg',
+  imageAlt: 'Description',
+  description: 'Description affichée dans la modale.',
+  instagramUrl: 'https://www.instagram.com/p/...',
+  slots: 50
+}
+```
+
+### Ajouter une photo en galerie
+
+```js
+// assets/data.js > gallery: [...]
+{
+  title: 'Titre affiché',
+  caption: 'Légende de la photo.',
+  image: 'assets/dossier/photo.jpg',
+  imageAlt: 'Description alt'
 }
 ```
 
 ### Modifier les membres
 
-Dans `assets/data.js` > section `members`, mettre à jour `name`, `role` et `photo` (chemin relatif vers `assets/`).
+Dans `assets/data.js` > section `members` — mettre à jour `name`, `role`, `photo` (chemin relatif `assets/`) et `color` (couleur de l'avatar fallback).
 
 ---
 
 ## Carte interactive (Leaflet)
 
-- Tuiles **CartoDB Voyager** (style Google Maps, gratuit, sans clé API)
-- Marqueur **ESAIP** avec logo officiel
-- Marqueurs par activité avec logo du lieu et popup (adresse, tarif, lien Instagram)
-- Zoom désactivé à la molette (pour ne pas bloquer le scroll de page)
+- Tuiles **CartoDB Voyager** — style épuré, sans clé API
+- Marqueur **ESAIP** avec logo officiel + popup adresse
+- Marqueurs **activités** : photo de couverture en format circulaire, bordure colorée par catégorie, popup avec image, tarif et lien Instagram
+- Scroll à la molette désactivé sur la carte (pour ne pas bloquer le scroll de page)
+
+Catégories et couleurs :
+
+| Catégorie | Couleur |
+|---|---|
+| Nature | `#059669` (vert) |
+| Culture locale | `#7c3aed` (violet) |
+| Musique | `#db2777` (rose) |
+| Sport | `#0071e3` (bleu) |
+| Aventure | `#ea580c` (orange) |
+| Créatif | `#d97706` (ambre) |
 
 ---
 
-## Contribuer
+## Formulaire de contact / inscriptions
 
-1. Cloner le repo
-```bash
-git clone https://github.com/Pololego29/CDD.git
+Par défaut, les formulaires ouvrent le client mail (`mailto:`).  
+Pour activer l'envoi automatique sans ouvrir de messagerie :
+
+1. Créer un compte sur [web3forms.com](https://web3forms.com/) et récupérer la clé d'accès
+2. Dans `assets/data.js` > objet `club`, ajouter :
+```js
+web3formsKey: 'VOTRE_CLE_ICI'
 ```
-2. Créer une branche
-```bash
-git checkout -b feat/ma-modification
+
+---
+
+## Déploiement (Vercel)
+
+Le fichier `vercel.json` redirige `/` vers `main.html` pour le routing statique :
+
+```json
+{
+  "rewrites": [
+    { "source": "/", "destination": "/main.html" }
+  ]
+}
 ```
-3. Modifier `assets/data.js` ou les pages HTML/CSS
-4. Pousser et ouvrir une Pull Request
+
+Tout push sur `main` déclenche un déploiement automatique.
 
 ---
 
@@ -120,15 +190,15 @@ git checkout -b feat/ma-modification
 
 | Nom | Rôle |
 |---|---|
-| Paul LAMBLIN | Président & Chef de dev |
-| Clément MARCO | Chef de dev adjoint |
-| Amine BENBOUCHTA | Trésorier |
-| Emmeline WAGNER | Secrétaire |
-| Mouad DERRAZ | Resp. sorties |
+| Paul LAMBLIN | Développeur |
+| Clément MARCO | Développeur |
+| Amine BENBOUCHTA | Président du club |
 | Ruben COHEN | Trésorier |
-| Sacha ROSTAING | Événements |
-| Ikram AYAD | Resp. communication |
+| Sacha ROSTAING | Chef de Route / Partenariat |
+| Ikram AYAD | Responsable Communication |
+| Emmeline WAGNER | Membre |
+| Mouad DERRAZ | Membre |
 
 ---
 
-*Site réalisé par Paul LAMBLIN, ING2 ESAIP Aix-en-Provence*
+*Site réalisé par Paul LAMBLIN et Clément MARCO, ING2 ESAIP Aix-en-Provence*
