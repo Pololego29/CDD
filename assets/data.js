@@ -135,7 +135,7 @@ window.clubData = {
     { name: 'Mouad DERRAZ', role: 'Membre', photo: 'assets/mouad-derraz.jpg', color: '#059669' },
     { name: 'Ruben COHEN', role: 'Trésorier', photo: 'assets/ruben-cohen.png', color: '#0891b2' },
     { name: 'Sacha ROSTAING', role: 'Chef de Route / Partenariat', photo: 'assets/sacha-rostaing.jpg', color: '#d97706' },
-    { name: 'IKRAM AYAD', role: 'Responsable Communication', photo: 'assets/IKRAM AYAD.jpg', initials: 'IA', color: '#be123c' }
+    { name: 'Ikram AYAD', role: 'Responsable Communication', photo: 'assets/IKRAM AYAD.jpg', initials: 'IA', color: '#be123c' }
   ],
   testimonials: [
     {
