@@ -334,7 +334,6 @@
         '<p><strong>Niveau:</strong> ' + item.level + '</p>' +
         '<p><strong>Duree:</strong> ' + item.duration + '</p>' +
         '<p><strong>Rendez-vous:</strong> ' + item.meetingPoint + '</p>' +
-        '<p><strong>Tarif membre:</strong> ' + euro(item.priceMember) + '</p>' +
         (item.imageCreditUrl ? '<p class="muted">Source: <a href="' + item.imageCreditUrl + '" target="_blank" rel="noreferrer">' + item.imageCredit + '</a></p>' : '') +
         (item.instagramUrl ? '<p class="muted"><a class="insta-link" href="' + item.instagramUrl + '" target="_blank" rel="noreferrer">&#128247; Voir sur Instagram</a></p>' : '') +
         '</div>' +
