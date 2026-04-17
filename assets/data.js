@@ -37,10 +37,10 @@ window.clubData = {
       priceMember: 0,
       priceGuest: 6,
       slots: 20,
-      image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Mus%C3%A9e_Granet_Aix_en_Provence.jpg',
-      imageAlt: 'Facade du Musee Granet, Aix-en-Provence',
-      imageCredit: 'Photo: Didier Deveze (Wikimedia Commons)',
-      imageCreditUrl: 'https://commons.wikimedia.org/wiki/File:Mus%C3%A9e_Granet_Aix_en_Provence.jpg',
+      image: 'assets/granet/IMG_0972.jpg',
+      imageAlt: 'Interieur du Musee Granet, Aix-en-Provence',
+      imageCredit: '',
+      imageCreditUrl: '',
       instagramUrl: 'https://www.instagram.com/p/DWuZgO7AnGU/',
       description: 'Collection permanente du XIVe au XXe siècle avec une superbe salle Cézanne. Entrée gratuite pour les étudiants (carte ou certificat de scolarité requis). Accès bus arrêt Saint-Jean. Ouvert mar-dim de 12h à 18h.',
       lat: 43.5253540, lng: 5.4529491
@@ -87,43 +87,57 @@ window.clubData = {
   events: [],
   gallery: [
     {
-      title: 'Panorama Sainte-Victoire',
-      caption: 'Lever du soleil pendant la sortie du samedi.',
-      image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Montagne_Sainte-Victoire.jpg',
-      imageAlt: 'Montagne Sainte-Victoire',
-      creditUrl: 'https://commons.wikimedia.org/wiki/File:Montagne_Sainte-Victoire.jpg'
+      title: 'Visite du Musée Granet',
+      caption: 'Collections du Musée Granet, Aix-en-Provence.',
+      image: 'assets/granet/IMG_0972.jpg',
+      imageAlt: 'Musée Granet — salle des collections'
     },
     {
-      title: 'Marche provencal',
-      caption: 'Rencontre de producteurs locaux a Aix.',
-      image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Aix-en-Provence_(13)_Place_Richelme_940.jpg',
-      imageAlt: 'Place Richelme',
-      creditUrl: 'https://commons.wikimedia.org/wiki/File:Aix-en-Provence_(13)_Place_Richelme_940.jpg'
+      title: 'Musée Granet — œuvres',
+      caption: 'Peintures et sculptures de la collection permanente.',
+      image: 'assets/granet/IMG_0973.jpg',
+      imageAlt: 'Musée Granet — œuvres'
     },
     {
-      title: 'Atelier photo',
-      caption: 'Exercices de perspective dans le centre-ville.',
-      image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Fontaine_de_la_Rotonde_-_Aix-en-Provence.JPG',
-      imageAlt: 'Fontaine de la Rotonde',
-      creditUrl: 'https://commons.wikimedia.org/wiki/File:Fontaine_de_la_Rotonde_-_Aix-en-Provence.JPG'
+      title: 'Musée Granet — exposition',
+      caption: 'Une œuvre de la collection du XIVe au XXe siècle.',
+      image: 'assets/granet/IMG_0974.jpg',
+      imageAlt: 'Musée Granet — exposition'
     },
     {
-      title: 'Sortie Calanques',
-      caption: 'Journee nature et mer pres de Cassis.',
-      image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Calanque_d%27en_Vau.jpg',
-      imageAlt: 'Calanque d en Vau',
-      creditUrl: 'https://commons.wikimedia.org/wiki/File:Calanque_d%27en_Vau.jpg'
+      title: 'Musée Granet — détail',
+      caption: 'Détail d\'une pièce remarquable de la collection.',
+      image: 'assets/granet/IMG_0975.jpg',
+      imageAlt: 'Musée Granet — détail'
+    },
+    {
+      title: 'Musée Granet — salle Cézanne',
+      caption: 'La salle dédiée à Paul Cézanne, peintre aixois.',
+      image: 'assets/granet/IMG_0976.jpg',
+      imageAlt: 'Musée Granet — salle Cézanne'
+    },
+    {
+      title: 'Musée Granet — architecture',
+      caption: 'L\'architecture intérieure du musée.',
+      image: 'assets/granet/IMG_0977.jpg',
+      imageAlt: 'Musée Granet — architecture intérieure'
+    },
+    {
+      title: 'Musée Granet — ambiance',
+      caption: 'L\'ambiance du club lors de la visite.',
+      image: 'assets/granet/IMG_0978.jpg',
+      imageAlt: 'Musée Granet — ambiance visite'
     }
   ],
   members: [
-    { name: 'Paul LAMBLIN', role: 'Développement des fonctionnalités et support technique du site', photo: 'assets/paul-lamblin.jpg', color: '#0071e3' },
-    { name: 'Clément MARCO', role: 'Création et maintenance technique de l\'infrastructure web', photo: 'assets/clement-marco.png', color: '#7c3aed' },
-    { name: 'Amine BENBOUCHTA', role: 'Direction stratégique et coordination globale de l\'équipe', photo: 'assets/amine-benbouchta.jpg', color: '#db2777' },
+    { name: 'Paul LAMBLIN', role: 'Développeur', photo: 'assets/paul-lamblin.jpg', color: '#0071e3' },
+    { name: 'Clément MARCO', role: 'Développeur', photo: 'assets/clement-marco.png', color: '#7c3aed' },
+    { name: 'Amine BENBOUCHTA', role: 'Président du club', photo: 'assets/amine-benbouchta.jpg', color: '#db2777' },
     { name: 'Emmeline WAGNER', role: 'Membre', photo: 'assets/emmeline-wagner.png', color: '#ea580c' },
     { name: 'Mouad DERRAZ', role: 'Membre', photo: 'assets/mouad-derraz.jpg', color: '#059669' },
-    { name: 'Ruben COHEN', role: 'Gestion du budget, comptabilité et suivi des ressources', photo: 'assets/ruben-cohen.png', color: '#0891b2' },
-    { name: 'Sacha ROSTAING', role: 'Prospection de lieux et négociation d\'avantages étudiants', photo: 'assets/sacha-rostaing.jpg', color: '#d97706' },
-    { name: 'IKRAM AYAD', role: 'Création de contenu Instagram : rédaction, photographie et retouche', photo: 'assets/IKRAM AYAD.jpg', initials: 'IA', color: '#be123c' }
+    { name: 'Ruben COHEN', role: 'Trésorier', photo: 'assets/ruben-cohen.png', color: '#0891b2' },
+    { name: 'Sacha ROSTAING', role: 'Chef de Route / Partenariat', photo: 'assets/sacha-rostaing.jpg', color: '#d97706' },
+    { name: 'IKRAM AYAD', role: 'Responsable Communication', photo: 'assets/IKRAM AYAD.jpg', initials: 'IA', color: '#be123c' }
   ],
   testimonials: [
     {
