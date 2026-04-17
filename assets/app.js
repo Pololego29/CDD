@@ -122,7 +122,7 @@
       '<button class="evt-detail-close" id="close-detail" aria-label="Fermer">&times;</button>' +
       '</div>' +
       '<h3>' + item.title + '</h3>' +
-      '<p class="muted">' + formatDate(item.date || item.nextDate) + (item.time ? ' \u00e0 ' + item.time : '') + '</p>' +
+      (item.kind !== 'activity' ? '<p class="muted">' + formatDate(item.date || item.nextDate) + (item.time ? ' \u00e0 ' + item.time : '') + '</p>' : '') +
       '<p><strong>Lieu\u00a0:</strong> ' + (item.place || item.meetingPoint || '') + '</p>' +
       (item.description ? '<p class="muted">' + item.description + '</p>' : '') +
       (item.instagramUrl ? '<p class="muted"><a class="insta-link" href="' + item.instagramUrl + '" target="_blank" rel="noreferrer">&#128247; Voir sur Instagram \u2197</a></p>' : '') +
@@ -331,7 +331,6 @@
         '<p class="muted">' + item.description + '</p>' +
         '</div>' +
         '<div class="stack">' +
-        '<p><strong>Prochaine date:</strong> ' + formatDate(item.nextDate) + '</p>' +
         '<p><strong>Niveau:</strong> ' + item.level + '</p>' +
         '<p><strong>Duree:</strong> ' + item.duration + '</p>' +
         '<p><strong>Rendez-vous:</strong> ' + item.meetingPoint + '</p>' +
@@ -698,7 +697,7 @@
           renderImage(item, 'card-image') +
           '<span class="chip">' + item.category + '</span>' +
           '<h3>' + item.title + '</h3>' +
-          '<p class="muted">' + formatDate(item.nextDate) + ' - ' + item.meetingPoint + '</p>' +
+          '<p class="muted">' + item.meetingPoint + '</p>' +
           '<p>' + item.description + '</p>' +
           '</article>'
         );
