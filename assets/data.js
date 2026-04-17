@@ -121,7 +121,7 @@ window.clubData = {
     { name: 'Amine BENBOUCHTA', role: 'Tresorier', photo: 'assets/amine-benbouchta.jpg', color: '#db2777' },
     { name: 'Emmeline WAGNER', role: 'Secretaire', photo: 'assets/emmeline-wagner.png', color: '#ea580c' },
     { name: 'Mouad DERRAZ', role: 'Resp. sorties', photo: 'assets/mouad-derraz.jpg', color: '#059669' },
-    { name: 'Ruben COHEN', role: 'Tresorier', photo: 'assets/ruben-cohen.jpg', color: '#0891b2' },
+    { name: 'Ruben COHEN', role: 'Tresorier', photo: 'assets/ruben-cohen.png', color: '#0891b2' },
     { name: 'Sacha ROSTAING', role: 'Evenements', photo: 'assets/sacha-rostaing.jpg', color: '#d97706' },
     { name: 'IKRAM AYAD', role: 'Responsable communication', photo: 'assets/IKRAM AYAD.jpg', initials: 'IA', color: '#be123c' }
   ],

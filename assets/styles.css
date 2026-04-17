@@ -275,7 +275,7 @@ textarea {
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.7);
+  color: rgb(255, 255, 255);
   margin-bottom: 1rem;
   animation: fadeInUp 0.8s var(--ease) 0.2s both;
 }
@@ -293,7 +293,7 @@ textarea {
 .hero-sub {
   margin: 0 0 1.8rem;
   font-size: clamp(1rem, 1.8vw, 1.2rem);
-  color: rgba(255,255,255,0.82);
+  color: rgb(255, 255, 255);
   max-width: 50ch;
   line-height: 1.6;
   animation: fadeInUp 0.8s var(--ease) 0.6s both;
@@ -573,6 +573,14 @@ textarea {
   max-width: 70ch;
   font-size: 0.96rem;
   margin-bottom: 1rem;
+}
+
+.container > section {
+  margin-bottom: 3rem;
+}
+
+main > .container {
+  padding-bottom: 2.5rem;
 }
 
 /* ===== Filtres ===== */
@@ -1157,6 +1165,7 @@ footer {
   color: #fff;
   padding: 4rem 0;
   margin: 2rem 0 0;
+  text-align: center;
 }
 
 .stats-eyebrow {
@@ -1170,7 +1179,9 @@ footer {
 
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .stat-item {
@@ -1322,9 +1333,6 @@ footer {
   .hero-cinematic { height: 80vh; }
   .hero-title { font-size: clamp(2.2rem, 6vw, 3.8rem); }
 
-  .stats-grid { grid-template-columns: repeat(2, 1fr); }
-  .stat-item:nth-child(2) { border-right: none; }
-  .stat-item:nth-child(3) { border-right: 1px solid rgba(255,255,255,0.08); }
   .campus-block { height: 320px; }
 }
 
@@ -1343,13 +1351,7 @@ footer {
   display: flex;
   gap: 1.25rem;
   width: max-content;
-  animation: marquee 28s linear infinite;
-}
-
-
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  will-change: transform;
 }
 
 .member-card {
@@ -1428,9 +1430,9 @@ footer {
   .testimonial-grid,
   .kpi-grid { grid-template-columns: 1fr; }
 
-  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .stats-grid { grid-template-columns: repeat(1, 1fr); }
   .stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
-  .stat-item:nth-child(3) { border-right: none; }
+  .stat-item:last-child { border-bottom: none; }
   .campus-block { height: 260px; }
   .campus-caption h3 { font-size: 1.2rem; }
 

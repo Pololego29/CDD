@@ -12,7 +12,13 @@
       "WebFetch(domain:blocsession.com)",
       "WebFetch(domain:6micaix.fr)",
       "WebFetch(domain:www.labederie.com)",
-      "WebFetch(domain:www.6mic.fr)"
+      "WebFetch(domain:www.6mic.fr)",
+      "Bash(git stash *)",
+      "Bash(git pull *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)",
+      "Bash(xargs -I{} basename {})"
     ]
   }
 }

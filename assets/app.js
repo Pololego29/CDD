@@ -705,7 +705,7 @@
       }).join('');
     }
 
-    // Members marquee
+    // Members marquee — RAF-based infinite scroll (no CSS animation glitch)
     var membersTrack = qs('#members-track');
     if (membersTrack && data.members && data.members.length) {
       function memberCard(m) {
@@ -715,8 +715,35 @@
           : '<div class="member-avatar member-avatar-initials" style="background:' + m.color + '">' + (m.initials || m.name.charAt(0)) + '</div>';
         return '<div class="member-card">' + avatar + '<strong class="member-name">' + m.name + '</strong><span class="member-role">' + m.role + '</span></div>';
       }
-      var cardsHtml = data.members.map(memberCard).join('');
-      membersTrack.innerHTML = cardsHtml + cardsHtml; // doubled for seamless loop
+      membersTrack.innerHTML = data.members.map(memberCard).join('');
+      var origCards = Array.from(membersTrack.children);
+      origCards.forEach(function(el) { membersTrack.appendChild(el.cloneNode(true)); });
+
+      var marqueePos = 0;
+      var marqueeSpeed = 0.5;
+      var marqueePaused = false;
+      var marqueeSetWidth = 0;
+
+      function measureSetWidth() {
+        var gap = parseFloat(getComputedStyle(membersTrack).columnGap) || 20;
+        marqueeSetWidth = origCards.reduce(function(sum, el) { return sum + el.offsetWidth + gap; }, 0);
+      }
+
+      function marqueeStep() {
+        if (!marqueePaused) {
+          marqueePos += marqueeSpeed;
+          if (marqueeSetWidth && marqueePos >= marqueeSetWidth) marqueePos -= marqueeSetWidth;
+          membersTrack.style.transform = 'translateX(-' + marqueePos + 'px)';
+        }
+        requestAnimationFrame(marqueeStep);
+      }
+
+      setTimeout(function() { measureSetWidth(); requestAnimationFrame(marqueeStep); }, 150);
+
+      var wrap = membersTrack.parentElement;
+      wrap.addEventListener('mouseenter', function() { marqueePaused = true; });
+      wrap.addEventListener('mouseleave', function() { marqueePaused = false; });
+      window.addEventListener('resize', measureSetWidth);
     }
 
     var events = qs('#home-events');
