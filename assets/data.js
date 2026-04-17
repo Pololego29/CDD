@@ -18,10 +18,10 @@ window.clubData = {
       priceMember: 0,
       priceGuest: 5,
       slots: 50,
-      image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Bronze_Avery_Concert_2023_Brighton_Music_Hall.jpg',
-      imageAlt: 'Concert dans une salle de musique',
-      imageCredit: 'Photo: Fixer23 (Wikimedia Commons, CC BY-SA 4.0)',
-      imageCreditUrl: 'https://commons.wikimedia.org/wiki/File:Bronze_Avery_Concert_2023_Brighton_Music_Hall.jpg',
+      image: 'assets/6mic/IMG_0993.jpg',
+      imageAlt: 'Soirée au 6MIC, Aix-en-Provence',
+      imageCredit: '',
+      imageCreditUrl: '',
       instagramUrl: 'https://www.instagram.com/p/DTnuupWAvq9/',
       description: 'La plus grande salle de la région (2 000 places). Mardis : bar à tarif avantageux, jeux de plateau, jam session. Concerts gratuits le 1er mercredi du mois. Prochains événements : Headbang Festival, Roller Disco, Aix Bière Festival.',
       lat: 43.5192931, lng: 5.4218138
@@ -56,10 +56,10 @@ window.clubData = {
       priceMember: 0,
       priceGuest: 0,
       slots: 30,
-      image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Bookshop_interior_by_night_(30168164382).jpg',
-      imageAlt: 'Interieur d une librairie',
-      imageCredit: 'Photo: Wikimedia Commons',
-      imageCreditUrl: 'https://commons.wikimedia.org/wiki/File:Bookshop_interior_by_night_(30168164382).jpg',
+      image: 'assets/bederie/IMG_0979.jpg',
+      imageAlt: 'La Béderie, librairie BD Aix-en-Provence',
+      imageCredit: '',
+      imageCreditUrl: '',
       instagramUrl: 'https://www.instagram.com/p/DWlyXC5AiKw/',
       description: 'La librairie de référence du centre-ville pour BD, manga et comics. Salle dédiée pour jeux de rôle, lectures et dédicaces. À 25 min à pied de l\'ESAIP. Ouvert lun-sam de 10h à 19h. Entrée libre.',
       lat: 43.5295074, lng: 5.4468103
@@ -75,10 +75,10 @@ window.clubData = {
       priceMember: 13,
       priceGuest: 15,
       slots: 20,
-      image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Man_climbing_in_bouldering_gym.jpg',
-      imageAlt: 'Personne grimpant dans une salle de bloc',
-      imageCredit: 'Photo: John Kane / ospp0 (Wikimedia Commons, CC0)',
-      imageCreditUrl: 'https://commons.wikimedia.org/wiki/File:Man_climbing_in_bouldering_gym.jpg',
+      image: 'assets/escalade/IMG_0986.jpg',
+      imageAlt: 'Grimpe à Bloc Session, Aix-en-Provence',
+      imageCredit: '',
+      imageCreditUrl: '',
       instagramUrl: 'https://www.instagram.com/p/DTnpDbiAjGW/',
       description: 'Séance de bloc pour se vider la tête après les cours. Tarif à 13 EUR en heures creuses (avant 16h semaine). Abonnement Happy Hour à 30 EUR/mois. Ouvert 7j/7 de 12h à 22h. À 18 min à pied de l\'ESAIP.',
       lat: 43.5276337, lng: 5.4367554
@@ -86,48 +86,31 @@ window.clubData = {
   ],
   events: [],
   gallery: [
-    {
-      title: 'Visite du Musée Granet',
-      caption: 'Collections du Musée Granet, Aix-en-Provence.',
-      image: 'assets/granet/IMG_0972.jpg',
-      imageAlt: 'Musée Granet — salle des collections'
-    },
-    {
-      title: 'Musée Granet — œuvres',
-      caption: 'Peintures et sculptures de la collection permanente.',
-      image: 'assets/granet/IMG_0973.jpg',
-      imageAlt: 'Musée Granet — œuvres'
-    },
-    {
-      title: 'Musée Granet — exposition',
-      caption: 'Une œuvre de la collection du XIVe au XXe siècle.',
-      image: 'assets/granet/IMG_0974.jpg',
-      imageAlt: 'Musée Granet — exposition'
-    },
-    {
-      title: 'Musée Granet — détail',
-      caption: 'Détail d\'une pièce remarquable de la collection.',
-      image: 'assets/granet/IMG_0975.jpg',
-      imageAlt: 'Musée Granet — détail'
-    },
-    {
-      title: 'Musée Granet — salle Cézanne',
-      caption: 'La salle dédiée à Paul Cézanne, peintre aixois.',
-      image: 'assets/granet/IMG_0976.jpg',
-      imageAlt: 'Musée Granet — salle Cézanne'
-    },
-    {
-      title: 'Musée Granet — architecture',
-      caption: 'L\'architecture intérieure du musée.',
-      image: 'assets/granet/IMG_0977.jpg',
-      imageAlt: 'Musée Granet — architecture intérieure'
-    },
-    {
-      title: 'Musée Granet — ambiance',
-      caption: 'L\'ambiance du club lors de la visite.',
-      image: 'assets/granet/IMG_0978.jpg',
-      imageAlt: 'Musée Granet — ambiance visite'
-    }
+    { title: 'Musée Granet', caption: 'Collections du Musée Granet, Aix-en-Provence.', image: 'assets/granet/IMG_0972.jpg', imageAlt: 'Musée Granet — salle des collections' },
+    { title: 'Musée Granet', caption: 'Peintures et sculptures de la collection permanente.', image: 'assets/granet/IMG_0973.jpg', imageAlt: 'Musée Granet — œuvres' },
+    { title: 'Musée Granet', caption: 'Une œuvre de la collection du XIVe au XXe siècle.', image: 'assets/granet/IMG_0974.jpg', imageAlt: 'Musée Granet — exposition' },
+    { title: 'Musée Granet', caption: 'Détail d\'une pièce remarquable de la collection.', image: 'assets/granet/IMG_0975.jpg', imageAlt: 'Musée Granet — détail' },
+    { title: 'Musée Granet', caption: 'La salle dédiée à Paul Cézanne, peintre aixois.', image: 'assets/granet/IMG_0976.jpg', imageAlt: 'Musée Granet — salle Cézanne' },
+    { title: 'Musée Granet', caption: 'L\'architecture intérieure du musée.', image: 'assets/granet/IMG_0977.jpg', imageAlt: 'Musée Granet — architecture intérieure' },
+    { title: 'Musée Granet', caption: 'L\'ambiance du club lors de la visite.', image: 'assets/granet/IMG_0978.jpg', imageAlt: 'Musée Granet — ambiance visite' },
+    { title: 'La Béderie', caption: 'La librairie BD, manga et comics du centre-ville.', image: 'assets/bederie/IMG_0979.jpg', imageAlt: 'La Béderie — intérieur' },
+    { title: 'La Béderie', caption: 'Rayons BD et mangas à La Béderie.', image: 'assets/bederie/IMG_0980.jpg', imageAlt: 'La Béderie — rayons' },
+    { title: 'La Béderie', caption: 'Une sélection de comics et nouveautés.', image: 'assets/bederie/IMG_0981.jpg', imageAlt: 'La Béderie — comics' },
+    { title: 'La Béderie', caption: 'Ambiance de la librairie en centre-ville.', image: 'assets/bederie/IMG_0982.jpg', imageAlt: 'La Béderie — ambiance' },
+    { title: 'La Béderie', caption: 'Détail d\'un rayon de la Béderie.', image: 'assets/bederie/IMG_0983.jpg', imageAlt: 'La Béderie — détail rayon' },
+    { title: 'La Béderie', caption: 'Visite du club à La Béderie.', image: 'assets/bederie/IMG_0984.jpg', imageAlt: 'La Béderie — visite club' },
+    { title: 'La Béderie', caption: 'Les membres du club lors de la sortie.', image: 'assets/bederie/IMG_0985.jpg', imageAlt: 'La Béderie — membres' },
+    { title: 'Bloc Session', caption: 'Séance de grimpe au Bloc Session d\'Aix.', image: 'assets/escalade/IMG_0986.jpg', imageAlt: 'Bloc Session — grimpe' },
+    { title: 'Bloc Session', caption: 'Les membres en action sur les blocs.', image: 'assets/escalade/IMG_0987.jpg', imageAlt: 'Bloc Session — membres' },
+    { title: 'Bloc Session', caption: 'Ambiance de la salle de bloc.', image: 'assets/escalade/IMG_0988.jpg', imageAlt: 'Bloc Session — salle' },
+    { title: 'Bloc Session', caption: 'Progression sur les voies de bloc.', image: 'assets/escalade/IMG_0989.jpg', imageAlt: 'Bloc Session — voies' },
+    { title: 'Bloc Session', caption: 'Esprit collectif et entraide au bloc.', image: 'assets/escalade/IMG_0990.jpg', imageAlt: 'Bloc Session — collectif' },
+    { title: 'Bloc Session', caption: 'Concentration avant la montée.', image: 'assets/escalade/IMG_0991.jpg', imageAlt: 'Bloc Session — concentration' },
+    { title: 'Bloc Session', caption: 'Fin de séance au Bloc Session.', image: 'assets/escalade/IMG_0992.jpg', imageAlt: 'Bloc Session — fin de séance' },
+    { title: '6MIC', caption: 'Soirée au 6MIC, la grande salle de la région.', image: 'assets/6mic/IMG_0993.jpg', imageAlt: '6MIC — soirée' },
+    { title: '6MIC', caption: 'Ambiance concert au 6MIC.', image: 'assets/6mic/IMG_0994.jpg', imageAlt: '6MIC — concert' },
+    { title: '6MIC', caption: 'Les membres du club lors de la soirée.', image: 'assets/6mic/IMG_0995.jpg', imageAlt: '6MIC — membres' },
+    { title: '6MIC', caption: 'L\'ambiance unique du 6MIC.', image: 'assets/6mic/IMG_0996.jpg', imageAlt: '6MIC — ambiance' }
   ],
   members: [
     { name: 'Paul LAMBLIN', role: 'Développeur', photo: 'assets/paul-lamblin.jpg', color: '#0071e3' },

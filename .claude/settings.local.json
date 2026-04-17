@@ -20,7 +20,10 @@
       "Bash(git push *)",
       "Bash(xargs -I{} basename {})",
       "Bash(python3)",
-      "Bash(git reset *)"
+      "Bash(git reset *)",
+      "Bash(cp \"/Users/paullamblin/Documents/CDD-main/CDD/Photos Galerie/La béderie/\"*.jpg \"/Users/paullamblin/Documents/CDD-main/CDD/assets/bederie/\")",
+      "Bash(cp \"/Users/paullamblin/Documents/CDD-main/CDD/Photos Galerie/Club d'escalade/\"*.jpg \"/Users/paullamblin/Documents/CDD-main/CDD/assets/escalade/\")",
+      "Bash(cp \"/Users/paullamblin/Documents/CDD-main/CDD/Photos Galerie/6mic/\"*.jpg \"/Users/paullamblin/Documents/CDD-main/CDD/assets/6mic/\")"
     ]
   }
 }
