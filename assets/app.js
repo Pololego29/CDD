@@ -852,27 +852,18 @@
       'Creatif': '#d97706'
     };
 
-    var activityLogos = {
-      'act-6mic':        { src: 'https://www.google.com/s2/favicons?sz=64&domain=le6mic.fr',                                               fb: '🎵' },
-      'act-musee-granet':{ src: 'https://museegranet.org/fileadmin/mediatheque/logos/musee-granet-logo.svg',                               fb: '🎨' },
-      'act-bederie':     { src: 'https://www.google.com/s2/favicons?sz=64&domain=labederie.com',                                           fb: '📚' },
-      'act-bloc-session':{ src: 'https://www.blocsession.com/wp-content/uploads/2025/01/logo-groupe-1.png',                               fb: '🧗' }
-    };
-
     data.activities.forEach(function (item) {
       if (!item.lat || !item.lng) return;
       var color = catColors[item.category] || '#0071e3';
-      var logo = activityLogos[item.id] || { src: '', fb: '📍' };
-      var imgHtml = logo.src
-        ? '<img src="' + logo.src + '" style="width:30px;height:30px;object-fit:contain" onerror="this.style.display=\'none\';this.nextSibling.style.display=\'block\'">' +
-          '<span style="display:none;font-size:18px">' + logo.fb + '</span>'
-        : '<span style="font-size:18px">' + logo.fb + '</span>';
+      var imgHtml = item.image
+        ? '<img src="' + item.image + '" alt="' + (item.imageAlt || item.title) + '" style="width:100%;height:100%;object-fit:cover;border-radius:50%">'
+        : '<span style="font-size:18px">📍</span>';
       var icon = L.divIcon({
         className: '',
-        html: '<div style="background:#fff;border:2.5px solid ' + color + ';border-radius:10px;padding:3px;box-shadow:0 2px 8px rgba(0,0,0,0.35);width:40px;height:40px;display:flex;align-items:center;justify-content:center">' + imgHtml + '</div>',
-        iconSize: [40, 40],
-        iconAnchor: [20, 40],
-        popupAnchor: [0, -44]
+        html: '<div style="width:44px;height:44px;border-radius:50%;border:3px solid ' + color + ';box-shadow:0 2px 10px rgba(0,0,0,0.35);overflow:hidden;display:flex;align-items:center;justify-content:center;background:#fff">' + imgHtml + '</div>',
+        iconSize: [44, 44],
+        iconAnchor: [22, 44],
+        popupAnchor: [0, -48]
       });
       var price = item.priceMember === 0 ? 'Gratuit \u00e9tudiants' : item.priceMember + ' \u20ac';
       var popupHtml =
